@@ -1,0 +1,4 @@
+app:
+  cache:
+    type: local
+    ttl-in-seconds: 10

@@ -1,0 +1,6 @@
+app:
+  github:
+    url: https://api.github.com/
+    search_resource: search/repositories
+  cache:
+    type: none

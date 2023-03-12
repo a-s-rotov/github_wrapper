@@ -1,0 +1,4 @@
+app:
+  cache:
+    type: mongo
+    ttl-in-seconds: 10

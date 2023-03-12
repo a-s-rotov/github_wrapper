@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_HOST=mongo
+    depends_on:
+      mongo:
+        condition: service_healthy
+    command: java -jar -Dspring.profiles.active=mongo /project/target/github_wrapper-0.0.1-SNAPSHOT.jar
+
+  mongo:
+    image: mongo:6.0.4
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/local --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
