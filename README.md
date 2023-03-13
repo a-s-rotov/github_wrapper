@@ -10,7 +10,12 @@ https://docs.github.com/en/rest/search?apiVersion=2022-11-28#search-repositories
 * `local` - profile with local in-memory cache (for caching uses Caffeine)
 * `mongo` - profile with dedicated cache based MongoDB (for caching uses custom cache manger _com.github.githubwrapper.cache.CacheManager_)
 
+## Commands for generating DTO classes
+
+`mvn package` - generates DTOs from JSON schema
+
 ## Commands for launch
+
 `docker-compose up` - by default uses _mongo_ profile
 
 or
